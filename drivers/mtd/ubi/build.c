@@ -1405,6 +1405,7 @@ int ubi_detach_mtd_dev(int ubi_num, int anyway)
 #endif
 	vfree(ubi->fm_buf);
 	ubi_msg(ubi, "mtd%d is detached", ubi->mtd->index);
+	put_mtd_device(ubi->mtd);
 	put_device(&ubi->dev);
 	return 0;
 }
